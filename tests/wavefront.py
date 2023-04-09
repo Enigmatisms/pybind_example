@@ -1,6 +1,6 @@
 import numpy as np
 import pywavefront as pwf
-from wavefront_cpp import wavefront_convert
+from wavefront_cpp import wavefront_convert, get_bvh
 
 def load_obj_file(path: str, precomp_normal = True, verbose = False):
     """
@@ -23,3 +23,8 @@ if __name__ == "__main__":
     wavefront_convert(meshes, zero_output)
     print("Here")
     print(zero_output)
+
+    bvh_list = get_bvh(16)
+    for i in range(16):
+        bvh = bvh_list[i]
+        print(bvh.mini, bvh.maxi)
